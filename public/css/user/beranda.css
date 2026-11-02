@@ -1,0 +1,447 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Style umum */
+body {
+    margin: 0;
+    background-color: #ffffff;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    /* Layout Horizontal */
+    background: linear-gradient(135deg, #00bfff, #0083b0);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    /* Logo kiri, menu kanan */
+    align-items: center;
+    /* Agar logo & menu sejajar vertikal */
+    padding: 10px 5%;
+    /* Padding tipis agar tidak memakan ruang */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Efek bayangan agar terlihat elegan */
+}
+
+/* Tambahkan ini di file CSS Anda */
+.is-sticky {
+    position: fixed !important;
+    /* Memaksa header menempel */
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    /* Memastikan header selalu di atas konten */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Mengatur agar logo dan teks di dalamnya sejajar */
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0;
+}
+
+/* Membatasi ukuran logo agar header tidak terlalu tinggi */
+header .logo img {
+    width: 45px;
+    height: 45px;
+    margin-right: 0;
+}
+
+header .logo h1 {
+    font-size: 18px;
+    margin: 0;
+}
+
+header nav {
+    display: flex;
+    gap: 5px;
+    margin: 0;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 10px;
+    font-size: 8px;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+header nav a.active,
+header nav a:hover {
+    color: darkblue !important;
+    text-decoration: underline;
+}
+
+.hero {
+    background: lightskyblue;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    margin: 0;
+    color: black;
+}
+
+.slider-container {
+    width: 90%;
+    max-width: 400px;
+    /* Sesuaikan lebar maksimum */
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Menjaga kontainer tetap kotak 1:1 */
+    aspect-ratio: 1 / 1;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    /* Animasi geser yang halus saat berubah */
+    height: 100%;
+    width: 600%;
+    /* Karena ada 6 foto (100% * 6) */
+}
+
+.slider img {
+    width: calc(100% / 7);
+    height: 100%;
+    /* Mengikuti tinggi slider-container */
+    object-fit: cover;
+    /* Memastikan foto memenuhi kotak tanpa terdistorsi */
+    object-position: center;
+    /* Memastikan titik fokus foto ada di tengah */
+}
+
+/* Pastikan kontainer utama memiliki posisi relatif */
+.slider-wrapper {
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.slider-container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    /* Memaksa kotak 1:1 */
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: #f0f0f0;
+}
+
+.slider {
+    display: flex;
+    width: 100%;
+    /* JavaScript akan mengatur pergeseran */
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    /* Mencegah gambar menyusut */
+    object-fit: cover;
+    /* Menjaga agar tidak gepeng/terdistorsi */
+    object-position: center;
+    /* Fokus di tengah gambar */
+}
+
+/* Tombol panah di dalam */
+.arrow {
+    position: absolute;
+    /* Mengunci posisi di dalam wrapper */
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.5);
+    /* Background transparan agar estetik */
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: background 0.3s;
+}
+
+.arrow:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Mengatur posisi spesifik di dalam gambar */
+.prev {
+    left: 10px;
+}
+
+/* Jarak dari sisi kiri gambar */
+.next {
+    right: 10px;
+}
+
+/* Jarak dari sisi kanan gambar */
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.status-buka {
+    background: #e8f5e9;
+    color: rgb(0, 255, 0);
+}
+
+.status-istirahat {
+    background: #fff3e0;
+    color: orange;
+}
+
+.status-tutup {
+    background-color: pink;
+    color: red;
+}
+
+.status-libur {
+    background-color: pink;
+    color: red;
+}
+
+.jadwal-section {
+    max-width: 1100px;
+    margin: 30px auto 50px auto;
+    /* 'auto' di kiri dan kanan akan membuat elemen ke tengah */
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+    padding: 10px;
+    /* Tambahkan sedikit ruang di dalam agar tabel tidak menempel ke pinggir */
+}
+
+table {
+    width: 95%;
+    /* Menggunakan 95% agar ada sedikit napas di dalam kontainernya */
+    margin: 0 auto;
+    /* Menjaga agar elemen tabel itu sendiri di tengah */
+    min-width: 600px;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    text-align: left;
+    padding: 12px 20px;
+    font-size: 14px;
+    vertical-align: top;
+    border: 1px solid #dee2e6;
+    /* Agar teks yang panjang tetap rapi dari atas */
+}
+
+table th:first-child,
+table td:first-child {
+    width: 50px;
+    text-align: center;
+}
+
+table th {
+    background-color: aliceblue;
+    color: #777;
+    font-weight: normal;
+    text-align: center;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table tr:hover {
+    background-color: #ccc;
+}
+
+.status {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status-disetujui {
+    background: #e8f5e9;
+    color: rgb(0, 255, 0);
+}
+
+.status-pending {
+    background: #fff3e0;
+    color: orange;
+}
+
+.status-ditolak {
+    background-color: red;
+    color: pink;
+}
+
+.status-dibatalkan {
+    background-color: red;
+    color: pink;
+}
+
+.status-diproses {
+    background: #e8f3f5;
+    color: blue;
+}
+
+.status-selesai {
+    background: #e8f5e9;
+    color: rgb(0, 255, 0);
+}
+
+.panduan-pemesanan {
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.panduan-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+.panduan-item {
+    text-align: center;
+    width: 200px;
+}
+
+.nomor {
+    background: #00bfff;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 auto 15px;
+}
+
+.langkah-item p {
+    font-size: 14px;
+    color: #666;
+}
+
+.tentang-kami {
+    padding: 80px 20px;
+    background-color: #ffffff;
+}
+
+.tentang-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    text-align: justify;
+    align-items: center;
+}
+
+.konten-teks,
+.konten-visi-misi {
+    flex: 1;
+    min-width: 300px;
+}
+
+.tentang-kami h2 {
+    color: darkblue;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.tentang-kami h3 {
+    color: darkblue;
+    margin-top: 20px;
+}
+
+.tentang-kami ul {
+    list-style-type: square;
+    color: #555;
+    padding-left: 20px;
+}
+
+.tentang-kami p {
+    line-height: 1.6;
+    color: #444;
+}
+
+footer {
+    background: linear-gradient(135deg, #00bfff, #0083b0);
+    color: white;
+    padding: 40px 20px;
+    margin-top: 50px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.kontak-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.info-group {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    /* Sedikit diperkecil agar pas untuk 4 kolom */
+    flex-wrap: wrap;
+    /* Penting: agar pindah baris jika layar tidak muat */
+    margin-top: 30px;
+}
+
+.info-item-link,
+.info-item {
+    text-align: center;
+    color: white !important;
+    text-decoration: none;
+    flex: 1;
+    width: 100%;
+    /* Memaksa elemen menggunakan lebar penuh */
+    margin-bottom: 10px;
+}
+
+.info-item-link strong,
+.info-item strong {
+    display: block;
+    margin-bottom: 10px;
+    color: black;
+    font-size: 16px;
+}

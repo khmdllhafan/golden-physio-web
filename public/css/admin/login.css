@@ -1,0 +1,232 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: #00bfff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.logo {
+    position: absolute;
+    top: 10px;
+    text-align: center;
+}
+
+.logo img {
+    width: 180px;
+    height: auto;
+}
+
+.login-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"],
+.login-box select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.login-box input:focus,
+.login-box select:focus {
+    border-color: #00bfff;
+    box-shadow: 0px 0px 6px #00bfff;
+    background-color: lightcyan;
+}
+
+/* Placeholder style untuk select */
+.login-box select {
+    color: #666;
+    background: #fff;
+    appearance: none;
+    /* hilangkan default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='14' viewBox='0 0 24 24' width='14' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 14px;
+}
+
+/* Wrapper jika ingin arrow rapi */
+.select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.login-box .link-group {
+    text-align: left;
+    margin: 10px 0;
+    margin-top: 0px;
+}
+
+.login-box .link-group a {
+    color: blue;
+    font-size: 14px;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login-box .link-group a:first-child {
+    margin-bottom: 10px;
+}
+
+.login-box .link-group a:hover {
+    text-decoration: underline;
+}
+
+
+.login-box a:hover {
+    text-decoration: underline;
+}
+
+.login-box button {
+    background-color: #00bfff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    font-size: 12px;
+}
+
+.login-box button:hover {
+    background-color: #1b8edc
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+    /* Pastikan container tidak memiliki padding yang mengganggu posisi absolut di dalamnya */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    /* Titik mulai tetap di 50% */
+    top: 41%;
+    /* Kita naikkan tarikan ke atas dari -50% menjadi -60% agar posisi mata naik sedikit */
+    transform: translateY(-60%);
+    cursor: pointer;
+    color: #777;
+    font-size: 15px;
+    /* Memastikan tidak ada ruang kosong di bawah ikon */ 
+}
+
+.toggle-password:hover {
+    color: #00bfff; /* Warna saat dihover */
+}
+
+.input-date {
+    position: relative;
+    width: 100%;
+}
+
+.input-date input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.input-date span {
+    position: absolute;
+    left: 12px;
+    top: 13px;
+    color: #888;
+    pointer-events: none;
+    transition: 0.2s ease-in-out;
+    font-size: 14px;
+}
+
+/* Saat user memilih tanggal atau focus, label naik */
+.input-date input:focus+span,
+.input-date input:not(:placeholder-shown)+span,
+.input-date input:valid+span {
+    top: -10px;
+    font-size: 12px;
+    color: #000000;
+    background: #fff;
+    padding: 0 4px;
+}
+
+.error {
+    background-color: pink;
+    color: red;
+    border: 1px solid red;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.success {
+    background-color: #d4edda;
+    /* hijau muda */
+    color: rgb(0, 255, 0);
+    /* hijau tua */
+    border: 1px solid rgb(0, 255, 0);
+    /* border hijau */
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.error_registrasi {
+    background-color: pink;
+    color: red;
+    border: 1px solid red;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.success_registrasi {
+    background-color: #d4edda;
+    /* hijau muda */
+    color: rgb(0, 255, 0);
+    /* hijau tua */
+    border: 1px solid rgb(0, 255, 0);
+    /* border hijau */
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}

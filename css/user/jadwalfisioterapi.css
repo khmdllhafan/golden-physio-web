@@ -1,0 +1,359 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Style umum */
+body {
+    margin: 0;
+    background-color: #F8F9FA;
+}
+
+/* Header biru atas */
+header {
+    background: linear-gradient(135deg, #00bfff, #0083b0);
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+}
+
+header .logo h1 {
+    font-size: 20px;
+    /* Disesuaikan agar proporsional */
+}
+
+/* Layout utama */
+.container {
+    display: flex;
+    height: calc(100vh - 70px);
+    overflow: hidden;
+}
+
+/* Sidebar kuning */
+.sidebar {
+    width: 125px;
+    background-color: rgb(200, 230, 255);
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 10px 0 15px -4px rgba(0, 0, 0, 0.15);
+    font-weight: bold;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    height: calc(100vh - 70px);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+    width: 100%;
+}
+
+.sidebar li {
+    margin: 10px 0;
+    width: 100%;
+    position: relative;
+}
+
+.sidebar ul li.active {
+    background: #00bfff;
+    border-radius: 6px;
+}
+
+.sidebar ul li.active a {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.sidebar a {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: navy;
+    font-size: 14px;
+    transition: all .12s ease;
+}
+
+.sidebar a:hover {
+    color: lightskyblue;
+    transform: translateX(5px);
+    font-style: italic;
+}
+
+/* 2. Dorong menu logout ke posisi paling bawah */
+.menu-bottom {
+    margin-top: auto;
+    /* Trik utama flexbox untuk mendorong elemen ke bawah */
+    padding-top: 150px;
+}
+
+/* 3. Desain warna merah untuk tombol logout */
+.btn-logout-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: red;
+    /* Merah terang */
+    color: white !important;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* 4. Efek ketika tombol logout disorot (Hover) */
+.btn-logout-footer:hover {
+    background-color: rgb(150, 0, 0);
+    /* Warna merah yang sedikit lebih gelap saat di-hover */
+}
+
+/* Konten utama */
+.content {
+    margin-left: 125px;
+    flex: 1;
+    padding: 30px;
+    /* Jarak atas, kanan, bawah, kiri */
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    box-sizing: border-box;
+    /* Penting agar padding tidak menambah lebar */
+}
+
+.table-container {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    margin-top: 55px;
+    margin-bottom: 55px;
+    max-width: 1200px;
+    margin-left: auto;
+    /* Menambah jarak otomatis di kiri */
+    margin-right: auto;
+    /* Menambah jarak otomatis di kanan */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    overflow-x: auto;
+    /* Ini yang membuat tabel bisa di-scroll kiri-kanan */
+    -webkit-overflow-scrolling: touch;
+    /* Agar scroll terasa halus di mobile */
+}
+
+h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+
+.fixed-title {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    padding: 20px 0;
+    margin: 0;
+    text-align: center;
+    z-index: 10;
+    border-bottom: 2px solid #eee;
+}
+
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 15px;
+    background: aliceblue;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.filter-group label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #555;
+}
+
+.filter-form input,
+.filter-form select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.filter-form input:hover,
+.filter-form select:hover {
+    border-color: #00bfff;
+    box-shadow: 0px 0px 6px #00bfff;
+    background-color: lightcyan;
+}
+
+.filter-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Tombol */
+.btn-filter {
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #00bfff, #0083b0);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-filter:hover {
+    background: #1b8edc;
+}
+
+/* 2. Container untuk enable scroll horizontal */
+.table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    /* Memungkinkan scroll kiri-kanan */
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+}
+
+.table-riwayat {
+    width: 100%;
+    min-width: 600px;
+    /* Atur lebar minimum agar tabel tidak terlalu gepeng di layar kecil */
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+/* Memberikan garis pada header dan setiap sel */
+.table-riwayat th,
+.table-riwayat td {
+    padding: 12px 15px;
+    vertical-align: middle;
+    border: 1px solid #dee2e6;
+    /* Garis antar kolom dan baris */
+    word-wrap: break-word;
+}
+
+/* Header Tabel (thead) */
+.table-riwayat thead th {
+    background-color: aliceblue;
+    /* Warna abu-abu yang lebih terang */
+    color: #888;
+    /* Warna teks abu-abu khas dashboard modern */
+    font-size: 14px;
+    font-weight: Bold;
+    text-transform: capitalize;
+    /* Tidak perlu uppercase semua agar lebih clean */
+    padding: 20px 15px;
+    /* Padding lebih tinggi agar terlihat premium */
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Isi Tabel (tbody) */
+.table-riwayat td {
+    padding: 20px 15px;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #f8f8f8;
+    vertical-align: middle;
+}
+
+/* Memberikan penebalan pada kolom tertentu agar mirip admin */
+.table-riwayat td:nth-child(2) {
+    font-weight: bold;
+    /* Menebalkan tanggal/nama agar menonjol */
+}
+
+/* Menghilangkan border bawah pada baris terakhir */
+.table-riwayat tr:last-child td {
+    border-bottom: none;
+}
+
+.table-riwayat tr:hover {
+    background-color: #ccc;
+}
+
+/* Helper Classes */
+.text-center {
+    text-align: center;
+}
+
+.text-semibold {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Menangani teks keluhan yang terlalu panjang */
+.cell-keluhan {
+    max-width: 300px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.badge {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    /* Tambahkan ini agar padding terlihat rapi */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Sesuai status 'Pending' di DB */
+.badge-pending {
+    background: #fff3e0;
+    color: orange;
+}
+
+.badge-disetujui {
+    background-color: #e8f5e9;
+    color: rgb(0, 255, 0);
+}
+
+.badge-diproses {
+    background: #e8f3f5;
+    color: blue;
+}
+
+/* Sesuai status 'Selesai' di DB */
+.badge-selesai {
+    background-color: #e8f5e9;
+    color: rgb(0, 255, 0);
+}
+
+.badge-ditolak {
+    background-color: pink;
+    color: red;
+}
+
+.badge-dibatalkan {
+    background-color: pink;
+    color: red;
+}

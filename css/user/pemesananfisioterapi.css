@@ -1,0 +1,300 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Style umum */
+body {
+    margin: 0;
+    background-color: #F8F9FA;
+}
+
+/* Header biru atas */
+header {
+    background: linear-gradient(135deg, #00bfff, #0083b0);
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+}
+
+header .logo h1 {
+    font-size: 20px;
+    /* Disesuaikan agar proporsional */
+}
+
+/* Layout utama */
+.container {
+    display: flex;
+    height: calc(100vh - 70px);
+    overflow: hidden;
+}
+
+/* Sidebar kuning */
+.sidebar {
+    width: 125px;
+    background-color: rgb(200, 230, 255);
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 10px 0 15px -4px rgba(0, 0, 0, 0.15);
+    font-weight: bold;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    height: calc(100vh - 70px);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+    width: 100%;
+}
+
+.sidebar li {
+    margin: 10px 0;
+    width: 100%;
+    position: relative;
+}
+
+.sidebar ul li.active {
+    background: #00bfff;
+    border-radius: 6px;
+}
+
+.sidebar ul li.active a {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.sidebar a {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: navy;
+    font-size: 14px;
+    transition: all .12s ease;
+}
+
+.sidebar a:hover {
+    color: lightskyblue;
+    transform: translateX(5px);
+    font-style: italic;
+}
+
+/* 2. Dorong menu logout ke posisi paling bawah */
+.menu-bottom {
+    margin-top: auto;
+    /* Trik utama flexbox untuk mendorong elemen ke bawah */
+    padding-top: 150px;
+}
+
+/* 3. Desain warna merah untuk tombol logout */
+.btn-logout-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: red;
+    /* Merah terang */
+    color: white !important;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* 4. Efek ketika tombol logout disorot (Hover) */
+.btn-logout-footer:hover {
+    background-color: rgb(150, 0, 0);
+    /* Warna merah yang sedikit lebih gelap saat di-hover */
+}
+
+/* Konten utama */
+.content {
+    margin-left: 125px;
+    flex: 1;
+    padding: 30px;
+    /* Jarak atas, kanan, bawah, kiri */
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    box-sizing: border-box;
+    /* Penting agar padding tidak menambah lebar */
+}
+
+/* Gaya Kartu (Card) */
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid grey;
+    margin-top: 55px;
+    margin-bottom: 55px;
+    max-width: 1200px;
+    margin-left: auto;
+    /* Menambah jarak otomatis di kiri */
+    margin-right: auto;
+    /* Menambah jarak otomatis di kanan */
+    overflow-x: auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    /* Ini yang membuat tabel bisa di-scroll kiri-kanan */
+    -webkit-overflow-scrolling: touch;
+    /* Agar scroll terasa halus di mobile */
+}
+
+h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    /* Garis bawah biru sesuai tema logo */
+    padding-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-left: 2px;
+    /* Menyelaraskan dengan input */
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Penataan Form - Tambahkan padding pada form agar tidak mepet ke pinggir card */
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px 20px 20px;
+    /* Menambah jarak kiri, kanan, dan bawah agar tidak mepet */
+}
+
+/* Menggunakan width yang sama untuk semua elemen form */
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="tel"],
+input[type="password"],
+textarea,
+select {
+    width: calc(100% - 4px);
+    /* Mengurangi lebar sedikit agar tidak terlalu menempel ke border container */
+    padding: 12px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    /* Bayangan diperhalus agar tidak terlalu pekat */
+    margin-left: 2px;
+    /* Memberi sedikit ruang agar tidak mepet ke kiri */
+}
+
+input:focus[type="text"],
+input:focus[type="date"],
+input:focus[type="time"],
+input:focus[type="tel"],
+input:focus[type="password"],
+textarea:focus,
+select:focus {
+    border-color: #00bfff;
+    box-shadow: 0px 0px 6px #00bfff;
+    background-color: lightcyan;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+#jam_terapi option:disabled {
+    color: #ff0000 !important;
+    /* Warna merah */
+    background-color: pink;
+    /* Merah muda halus */
+    font-style: italic;
+}
+
+#jam_terapi option:disabled:hover {
+    cursor: not-allowed;
+}
+
+textarea {
+    height: 90px;
+}
+
+/* Checkbox Alignment */
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    margin-left: 2px; /* Menyelaraskan dengan input */
+    font-size: 14px;
+}
+
+.btn-submit {
+    margin-top: 25px;
+    padding: 12px 18px;
+    background: linear-gradient(135deg, #00bfff, #0083b0);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 60px;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:disabled {
+    background-color: #ccc;
+    /* Warna abu-abu */
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    background: #1b8edc;
+}
+
+.success {
+    background-color: #d4edda;
+    /* hijau muda */
+    color: rgb(0, 255, 0);
+    /* hijau tua */
+    border: 1px solid rgb(0, 255, 0);
+    /* border hijau */
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.error {
+    background-color: pink;
+    color: red;
+    border: 1px solid red;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+}

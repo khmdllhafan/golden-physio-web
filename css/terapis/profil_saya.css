@@ -1,0 +1,389 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Style umum */
+body {
+    margin: 0;
+    background-color: #F8F9FA;
+}
+
+/* Header biru atas */
+header {
+    background: linear-gradient(135deg, #00bfff, #0083b0);
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+}
+
+header .logo h1 {
+    font-size: 20px;
+    /* Disesuaikan agar proporsional */
+}
+
+/* Layout utama */
+.container {
+    display: flex;
+    height: calc(100vh - 70px);
+    overflow: hidden;
+}
+
+/* Sidebar kuning */
+.sidebar {
+    width: 125px;
+    background-color: rgb(200, 230, 255);
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 10px 0 15px -4px rgba(0, 0, 0, 0.15);
+    font-weight: bold;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    height: calc(100vh - 70px);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+    width: 100%;
+}
+
+.sidebar li {
+    margin: 10px 0;
+    width: 100%;
+    position: relative;
+}
+
+.sidebar ul li.active {
+    background: #00bfff;
+    border-radius: 6px;
+}
+
+.sidebar ul li.active a {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.sidebar a {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: navy;
+    font-size: 14px;
+    transition: all .12s ease;
+}
+
+.sidebar a:hover {
+    color: lightskyblue;
+    transform: translateX(5px);
+    font-style: italic;
+}
+
+/* 2. Dorong menu logout ke posisi paling bawah */
+.menu-bottom {
+    margin-top: auto;
+    /* Trik utama flexbox untuk mendorong elemen ke bawah */
+    padding-top: 150px;
+}
+
+/* 3. Desain warna merah untuk tombol logout */
+.btn-logout-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: red;
+    /* Merah terang */
+    color: white !important;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* 4. Efek ketika tombol logout disorot (Hover) */
+.btn-logout-footer:hover {
+    background-color: rgb(150, 0, 0);
+    /* Warna merah yang sedikit lebih gelap saat di-hover */
+}
+
+/* Main Content */
+.content {
+    margin-left: 125px;
+    /* supaya tidak ketimpa sidebar */
+    flex: 1;
+    padding: 30px;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    /* scroll hanya di konten */
+}
+
+.content-body {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+    margin-top: 55px;
+    margin-bottom: 55px;
+}
+
+.page-title {
+    font-size: 24px;
+    color: black;
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-tambah {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    background: lime;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.btn-tambah:hover {
+    background-color: green;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    margin-top: 55px;
+    margin-bottom: 110px;
+    max-width: 1200px;
+    margin-left: auto;
+    /* Menambah jarak otomatis di kiri */
+    margin-right: auto;
+    /* Menambah jarak otomatis di kanan */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    overflow-x: auto;
+    /* Ini yang membuat tabel bisa di-scroll kiri-kanan */
+    -webkit-overflow-scrolling: touch;
+    /* Agar scroll terasa halus di mobile */
+}
+
+.help-text-container {
+    /* Memberikan jarak kiri dan kanan 15px agar sejajar dengan input */
+    margin: 10px 15px; 
+    font-size: 13px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Tombol Kembali */
+.btn-back {
+    display: inline-block;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #00bfff, #0083b0);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+    transform: translateY(-2px);
+    background: #1b8edc;
+}
+
+.error {
+    background-color: pink;
+    color: red;
+    border: 1px solid red;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.success {
+    background-color: #d4edda;
+    /* hijau muda */
+    color: rgb(0, 255, 0);
+    /* hijau tua */
+    border: 1px solid rgb(0, 255, 0);
+    /* border hijau */
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    /* Sangat penting agar padding tidak merusak lebar */
+}
+
+/* Mengatur agar grup form menempati lebar penuh secara seragam */
+.form-row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-group {
+    width: 100%;
+    /* Memastikan setiap grup lebar 100% */
+    margin-bottom: 15px;
+}
+
+/* Merapikan Label */
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px; /* Tambahkan jarak bawah agar tidak terlalu mepet ke input */
+    margin-left: 15px;  /* Samakan dengan margin kiri input */
+    margin-right: 15px; /* Samakan dengan margin kanan input */
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="tel"],
+input[type="password"],
+textarea,
+select {
+    width: calc(100% - 30px);
+    /* Ubah baris width menjadi ini */
+    margin: 0 15px;
+    /* Tambahkan baris ini untuk memberi jarak kiri kanan */
+    padding: 12px;
+    border: 1px solid grey;
+    border-radius: 6px;
+    box-sizing: border-box;
+    display: block;
+}
+
+input:focus[type="text"],
+input:focus[type="date"],
+input:focus[type="time"],
+input:focus[type="tel"],
+input:focus[type="password"],
+textarea:focus,
+select:focus {
+    border-color: #00bfff;
+    box-shadow: 0px 0px 6px #00bfff;
+    background-color: lightcyan;
+}
+
+/* Wrapper harus mengikuti aturan lebar dan margin yang sama dengan input biasa */
+.password-wrapper {
+    position: relative;
+    width: calc(100% - 30px); /* Samakan dengan width input lain */
+    margin: 0 15px;           /* Samakan dengan margin input lain */
+}
+
+/* Pastikan input di dalam wrapper memenuhi lebar wrapper tersebut */
+.password-wrapper input {
+    width: 100% !important;   /* Mengisi penuh ruang wrapper */
+    margin: 0 !important;     /* Reset margin agar tidak double */
+    padding: 12px 45px 12px 15px !important; /* Padding kanan 45px agar tidak tertutup ikon */
+    box-sizing: border-box;   /* Wajib ada agar padding tidak merusak lebar */
+}
+
+/* Memastikan ikon tetap berada di posisi yang benar */
+.toggle-password {
+    position: absolute;
+    right: 15px; 
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+    z-index: 10;
+}
+
+.toggle-password:hover {
+    color: #00bfff;
+    /* Warna saat dihover */
+}
+
+/* Button Simpan */
+.form-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    height: 100%;
+}
+
+.btn-submit {
+    margin-top: 25px;
+    padding: 12px 18px;
+    background: linear-gradient(135deg, #00bfff, #0083b0);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 60px;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    background: #1b8edc;
+}
+
+.btn-batal {
+    margin-top: 25px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 60px;
+    transition: all 0.3s ease;
+}
+
+.btn-batal:hover {
+    background-color: #444;
+    transform: translateY(-2px);
+}
